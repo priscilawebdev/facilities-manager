@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Spinner from 'components/Spinner'
+import Card from 'components/Card'
+import { bm, be } from 'utils/bem'
 
 interface IFacilities {
   id: number
@@ -33,15 +35,27 @@ class FacilityList extends Component<{}, IFacilityListState> {
       .then(facilities => this.setState({ facilities }))
   }
 
+  handleDetail = () => {
+    console.log('oioioii')
+  }
+
   render() {
     const { loading, facilities } = this.state
     return (
-      <div className='FacilityList'>
+      <div className={bm('FacilityList')}>
+        <h1  className={be('FacilityList', 'title')}>Facilities Manager</h1>
         {loading ? (
           <Spinner />
         ) : (
-          <div  className='FacilityList-content'>
-            {facilities.map(facility => console.log(facility))}
+          <div  className={be('FacilityList', 'content')}>
+            {facilities.map(facility => (
+              <Card
+                key={facility.id}
+                courtsN={facility.courts.length}
+                actionButton={this.handleDetail}
+                {...facility}
+              />
+            ))}
           </div>
         )}
       </div>
