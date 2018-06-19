@@ -1,22 +1,30 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "esnext",
+    /* Basic Options */
     "target": "es6",
-    "lib": ["es6", "dom"],
-    "sourceMap": true,
+    "module": "esnext",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
     "jsx": "react",
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "sourceMap": true,
+    "outDir": "./public/",
+
+    /* Strict Type-Checking Options */
+    "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitThis": true,
+
+    /* Additional Checks */
+
+    "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
-    "removeComments": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "suppressImplicitAnyIndexErrors": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
     "baseUrl": "client/src",
     "paths": {
       "components": ["components"],
