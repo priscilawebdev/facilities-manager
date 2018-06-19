@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "esnext",
+    "target": "es6",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "baseUrl": "client/src",
+    "paths": {
+      "components": ["components"],
+      "containers": ["containers"],
+      "utils": ["utils"]
+    }
+  },
+  "include": [
+    "client/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "public",
+    "webpack.config.js",
+    "global.d.ts"
+  ]
+}
