@@ -7,10 +7,11 @@ interface ICardProps {
   createdAt: string
   courtsN: number
   id: number
+  highlighted: boolean
 }
 
-const Card = ({ name, createdAt, courtsN, id}: ICardProps) => (
-  <div className={bm('Card')} >
+const Card = ({ name, createdAt, courtsN, id, highlighted }: ICardProps) => (
+  <div className={bm('Card', { highlighted })} >
     <div className={be('Card', 'head')} >
       <h2 className={be('Card', 'name')}>{name}</h2>
       <p className={be('Card', 'creation')}>{createdAt}</p>
