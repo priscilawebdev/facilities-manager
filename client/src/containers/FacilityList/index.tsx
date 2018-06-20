@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import { History } from 'history'
+
 import Spinner from 'components/Spinner'
 import Card from 'components/Card'
 import { bm, be } from 'utils/bem'
@@ -23,7 +26,11 @@ interface IFacilityListState {
   facilities: IFacilities[]
 }
 
-class FacilityList extends Component<{}, IFacilityListState> {
+interface IFacilityListProps {
+  history: History
+}
+
+class FacilityList extends Component<IFacilityListProps, IFacilityListState> {
   state: IFacilityListState = {
     loading: false,
     facilities: []
@@ -33,10 +40,6 @@ class FacilityList extends Component<{}, IFacilityListState> {
     fetch('http://localhost:3000/api/facilities')
       .then(res => res.json())
       .then(facilities => this.setState({ facilities }))
-  }
-
-  handleDetail = () => {
-    console.log('oioioii')
   }
 
   render() {
@@ -51,8 +54,8 @@ class FacilityList extends Component<{}, IFacilityListState> {
             {facilities.map(facility => (
               <Card
                 key={facility.id}
+                id={facility.id}
                 courtsN={facility.courts.length}
-                actionButton={this.handleDetail}
                 {...facility}
               />
             ))}
@@ -63,4 +66,4 @@ class FacilityList extends Component<{}, IFacilityListState> {
   }
 }
 
-export default FacilityList
+export default withRouter(FacilityList as any)
