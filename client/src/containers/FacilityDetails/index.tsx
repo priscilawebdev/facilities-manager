@@ -1,14 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { bm, be } from 'utils/bem'
 
-class FacilityDetails extends Component<{}, {}> {
+interface IFacilityDetailsProps {
+  id: number
+}
 
-  render() {
-    return (
-      <div className='FacilityDetails'>
-        oi
+const FacilityDetails: React.SFC<IFacilityDetailsProps> = ({ id }) => {
+  return (
+    <div className={bm('FacilityDetails')}>
+      <h2 className={be('FacilityDetails', 'title')}>oi</h2>
+      <div className={be('FacilityDetails', 'content')}>
+        <p className={be('FacilityDetails', 'item')}>
+          <strong>Created at:</strong>
+          {id}
+        </p>
+        <p className={be('FacilityDetails', 'item')}>
+          <strong>Number of courts:</strong>
+          {id}
+        </p>
+        <p className={be('FacilityDetails', 'item')}>
+          <strong>Address:</strong>
+          {id}
+        </p>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default FacilityDetails
