@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import { bm } from 'utils/bem'
 
 interface IButtonProps {
@@ -8,7 +8,7 @@ interface IButtonProps {
   primary?: boolean
   center?: boolean
   className?: string[]
-  onClick: (event: React.FormEvent<HTMLButtonElement>) => void
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 const Button = ({
