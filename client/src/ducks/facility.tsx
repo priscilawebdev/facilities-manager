@@ -10,13 +10,13 @@ export interface IFacilities {
   courts: ICourt[]
 }
 
+interface IState {
+  facilities: IFacilities[]
+}
+
 interface ICourt {
   id: number
   name: string
-}
-
-interface IState {
-  facilities: IFacilities[]
 }
 
 const InitialState = {

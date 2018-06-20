@@ -25,9 +25,9 @@ class FacilityList extends Component<IFacilityListProps, {}> {
     const { facilities } = this.props
     return (
       <div className={bm('FacilityList')}>
-        <h1  className={be('FacilityList', 'title')}>Facilities Manager</h1>
-        <div  className={be('FacilityList', 'content')}>
-          {facilities.length > 0 ? (
+        <h1 className={be('FacilityList', 'title')}>Facilities Manager</h1>
+        <div className={be('FacilityList', 'content')}>
+          {facilities && facilities.length > 0 ? (
             facilities.map(facility => (
               <Card
                 key={facility.id}
@@ -38,20 +38,20 @@ class FacilityList extends Component<IFacilityListProps, {}> {
               />
             ))
           ) : (
-            <Spinner />
-          )}
+              <Spinner />
+            )}
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state: { facility: IFacilities[] }) => ({
-  ...state.facility
+const mapStateToProps = (state: { facility: { facilities: IFacilities[] } }) => ({
+  facilities: state.facility.facilities
 })
 
 const mapDispatchToProps = {
   handleLoadData: actions.loadData
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FacilityList as any)
+export default connect(mapStateToProps, mapDispatchToProps)(FacilityList)
