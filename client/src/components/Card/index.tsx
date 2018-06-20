@@ -1,15 +1,15 @@
 import React from 'react'
-import Button from 'components/Button'
+import { Link } from 'react-router-dom'
 import { bm, be } from 'utils/bem'
 
 interface ICardProps {
-  name: string,
-  createdAt: string,
-  courtsN: number,
-  actionButton: () => void
+  name: string
+  createdAt: string
+  courtsN: number
+  id: number
 }
 
-const Card = ({ name, createdAt, courtsN, actionButton}: ICardProps) => (
+const Card = ({ name, createdAt, courtsN, id}: ICardProps) => (
   <div className={bm('Card')} >
     <div className={be('Card', 'head')} >
       <h2 className={be('Card', 'name')}>{name}</h2>
@@ -18,7 +18,7 @@ const Card = ({ name, createdAt, courtsN, actionButton}: ICardProps) => (
     </div>
     <div className={be('Card', 'footer')} >
       <div className={be('Card', 'action')} >
-        <Button label='Details' onClick={actionButton} primary />
+        <Link className={be('Card', 'button')} to={`/details/${id}`}>Details</Link>
       </div>
     </div>
   </div>
