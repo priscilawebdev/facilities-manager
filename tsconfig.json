@@ -29,7 +29,8 @@
     "paths": {
       "components": ["components"],
       "containers": ["containers"],
-      "utils": ["utils"]
+      "utils": ["utils"],
+      "ducks": ["ducks"]
     }
   },
   "include": [

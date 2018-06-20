@@ -5,10 +5,12 @@ module.exports = (__, args) => ({
   entry: './client/src/index',
   output: {
     path: path.join(__dirname, 'client/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   devServer: {
     contentBase: path.join(__dirname, 'client/public'),
+    historyApiFallback: true,
     compress: true,
     port: 9000,
     proxy: {
@@ -61,7 +63,8 @@ module.exports = (__, args) => ({
     alias: {
       components: path.resolve(__dirname, 'client/src/components'),
       containers: path.resolve(__dirname, 'client/src/containers'),
-      utils: path.resolve(__dirname, 'client/src/utils')
+      utils: path.resolve(__dirname, 'client/src/utils'),
+      ducks: path.resolve(__dirname, 'client/src/ducks')
     }
   }
 })

@@ -7,7 +7,7 @@ const App = () => (
   <Router>
     <Switch>
       <Route exact path='/' component={FacilityList} />
-      <Route path='/details/:id' render={({match}) => (
+      <Route path='/details/:id' render={({ match }) => (
         <FacilityDetails id={match.params.id} />
       )}/>
     </Switch>
